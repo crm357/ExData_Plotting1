@@ -54,13 +54,18 @@ foo <- read.table(source,
 # From the project notes -- "We will only be using data from the dates 2007-02-01 and 2007-02-02."
 # this author chooses to subset those rows via (UNIX) grep.
 
-# due to the problems encountered with fread and read.table in handling skip=
-# and nrows=, we used UNIX to isolate the date/time ranges for the graph,
-# and used the result to confirm the record indexes needed for the correct subset.
-# from the macOS Ventura Terminal program and grep/cat from UNIX:
-#   grep -n ^1\/2\/2007 household_power_consumption.txt >day1.txt
-#   grep -n ^2\/2\/2007 household_power_consumption.txt >day2.txt
-#   cat day1.txt day2.txt >Feb1_2.txt
+# this assignment is in the context of exploratory analysis. "quick and dirty"
+# is the norm, for when you're exploring we want a "first look" at the raw data
+# to get a sense of what we're dealing with.  in the vein, this researcher prefers
+# to explore the raw data outside the R universe, using instead the seasoned tools
+# in the CLI to verify we're getting the final results we want.
+
+# hence, I used UNIX to isolate the date/time ranges for the graph, and used the 
+# result to confirm the record indexes needed for the correct subset.
+# from the macOS Ventura Terminal program and it's grep & cat from UNIX:
+#    grep -n ^1\/2\/2007 household_power_consumption.txt >day1.txt
+#    grep -n ^2\/2\/2007 household_power_consumption.txt >day2.txt
+#    cat day1.txt day2.txt >Feb1_2.txt
 
 # from the 'head(Feb1_2.txt)' and 'tail(Feb1_2.txt)' output, we get...
 firstRow <- 66638L
